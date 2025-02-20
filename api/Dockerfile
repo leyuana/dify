@@ -41,7 +41,3 @@ COPY . /app/api/
 COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ARG COMMIT_SHA
-ENV COMMIT_SHA ${COMMIT_SHA}
-
-ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
