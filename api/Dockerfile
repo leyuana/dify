@@ -1,13 +1,11 @@
 # base image
 FROM python:3.10-slim-bookworm AS base
 
-LABEL maintainer="takatost@gmail.com"
-
 # install packages
 FROM base as packages
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends gcc g++ libc-dev libffi-dev libgmp-dev libmpfr-dev libmpc-dev
+    && apt-get install -y --no-install-recommends gcc g++ libc-dev libffi-dev libgmp-dev libmpfr-dev libmpc-dev openssh-server
 
 COPY requirements.txt /requirements.txt
 
@@ -33,7 +31,7 @@ ENV TZ UTC
 WORKDIR /app/api
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl wget vim nodejs ffmpeg libgmp-dev libmpfr-dev libmpc-dev \
+    && apt-get install -y --no-install-recommends curl wget vim nodejs ffmpeg libgmp-dev libmpfr-dev libmpc-dev openssh-server \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
