@@ -1,7 +1,7 @@
 name: Build docker image
 
 on:
-  pull_request:
+  push:
     branches:
       - "0.6.9"
     paths:
