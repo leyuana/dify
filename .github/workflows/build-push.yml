@@ -45,6 +45,6 @@ jobs:
           push: true
           context: ${{ matrix.context }}
           platforms: ${{ matrix.platform }}
-          tags: leyuanqaq/intelligent-app:${{ matrix.service_name }}
+          tags: leyuanqaq/intelligent-app:v1.1
           cache-from: type=gha
           cache-to: type=gha,mode=max
