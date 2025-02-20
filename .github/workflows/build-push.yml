@@ -17,9 +17,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - service_name: "api-amd64"
-            platform: linux/amd64
-            context: "api"
+          # - service_name: "api-amd64"
+          #   platform: linux/amd64
+          #   context: "api"
           - service_name: "api-arm64"
             platform: linux/arm64
             context: "api"
@@ -42,7 +42,7 @@ jobs:
       - name: Build Docker Image
         uses: docker/build-push-action@v6
         with:
-          push: false
+          push: true
           context: ${{ matrix.context }}
           platforms: ${{ matrix.platform }}
           tags: leyuanqaq/intelligent-app:${{ matrix.service_name }}
