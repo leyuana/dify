@@ -36,7 +36,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=packages /pkg /usr/local
-COPY . /app/api/
+RUN mkdir -p /app/api/
 
 COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
